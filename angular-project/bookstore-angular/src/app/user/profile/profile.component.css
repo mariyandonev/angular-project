@@ -1,0 +1,21 @@
+.image-form {
+  background: url("../../../assets/library-form.jpg") no-repeat center;
+  background-size: cover;
+  height: 614px;
+}
+
+.profile {
+  max-width: 400px;
+  width: 30%;
+  display: grid;
+  padding: 16px;
+  background-color: white;
+  position: relative;
+  top: 8em;
+  left: 8em;
+}
+
+.profile-pic {
+  background-image: url('../../../assets/profile-pic.png');
+  background-size: cover;
+}

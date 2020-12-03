@@ -1,0 +1,29 @@
+header p {
+  color: white;
+  margin-left: 12px;
+  margin-top: 35px;
+  font-size: 18px;
+}
+.home-nav {
+  display: flex;
+  justify-content: space-between;
+  background-color: black;
+}
+
+.col-nav ul {
+  display: flex;
+}
+
+.col-nav ul li {
+  list-style: none;
+  color: white;
+  font-size: 16px;
+  padding: 0.5em;
+}
+.col-nav ul li:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+#nav-text {
+  margin-left: 111px;
+}

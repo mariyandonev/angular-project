@@ -1,0 +1,35 @@
+<div class="image-form">
+  <form [formGroup]="form" (ngSubmit)="registerHandler()" id="register-form">
+    <mat-form-field class="form-item">
+      <mat-label>Email:</mat-label>
+      <input matInput type="email" formControlName="email"/>
+      <mat-hint align="end">Email must be correct</mat-hint>
+      <mat-error *ngIf="form.hasError('required', 'email')">Email is required</mat-error>
+      <mat-error *ngIf="form.hasError('email', 'email')">Email is not correct</mat-error>
+    </mat-form-field>
+    <mat-form-field class="form-item">
+      <mat-label>Username:</mat-label>
+      <input matInput type="text" formControlName="username"/>
+      <mat-hint align="end">Enter your name</mat-hint>
+      <mat-error *ngIf="form.hasError('required', 'username')">Username is required
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="form-item">
+      <mat-label>Password:</mat-label>
+      <input matInput type="password" formControlName="password"/>
+      <mat-hint align="end">Check if the caps lock is on</mat-hint>
+      <mat-error *ngIf="form.hasError('required', 'password')">Password is required</mat-error>
+      <mat-error *ngIf="form.hasError('minlength','password')">Password's minimum
+        length is 3 symbols
+      </mat-error>
+    </mat-form-field>
+    <!--  <mat-form-field class="register-form">-->
+    <!--    <input matInput type="password" formControlName="passwordConfirm"/>-->
+    <!--    <mat-hint align="end">Must be the same as above</mat-hint>-->
+    <!--    <mat-error *ngIf="form.hasError('notSame')">Passwords do not match</mat-error>-->
+    <!--  </mat-form-field>-->
+    <!--  {{form.value | json}}-->
+    <button mat-raised-button [disabled]="form.invalid">Register</button>
+    <button mat-raised-button type="button" (click)="resetRegistrationForm()">Reset</button>
+  </form>
+</div>

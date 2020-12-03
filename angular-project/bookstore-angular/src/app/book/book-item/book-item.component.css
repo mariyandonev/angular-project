@@ -1,0 +1,40 @@
+.theme-container{
+  height: auto;
+  width: 50%;
+  text-align: center;
+  position: relative;
+  left: 375px;
+  margin-bottom: 20px;
+}
+.theme-container a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.theme-container span {
+  font-weight: bold;
+}
+
+.theme-container h2, p {
+  padding: 0.3em 0 0.2em;
+  margin: 0;
+}
+
+.theme-name-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.3em 0.5em;
+  border: 1px solid #999;
+  border-radius: 0.3em;
+  font-size: 0.8em;
+  margin-top: 1em;
+}
+
+.theme-title {
+  padding: 0;
+}
+
+.theme-name {
+  width: 100%;
+}

@@ -1,0 +1,27 @@
+.not-found {
+  background-image: url("../../assets/little-prince.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  height: 620px;
+}
+.not-found p {
+  font-size: 22px;
+
+}
+.not-found-img {
+  width: 12%;
+  height: 41%;
+  position: relative;
+  top: 9em;
+  left: 8em;
+}
+
+.not-found-img img {
+  width: 100%;
+}
+
+#zero {
+  margin-top: 53px;
+}
+

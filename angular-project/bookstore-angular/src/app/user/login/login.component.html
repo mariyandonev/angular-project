@@ -1,0 +1,16 @@
+<div class="image-form">
+  <form [formGroup]="form" (ngSubmit)="loginHandler(form.value)" id="login-form">
+    <mat-form-field class="mat-list-item">
+      <input matInput type="email" placeholder="doe.john@mail.com" formControlName="email">
+      <mat-hint align="end">Email must be correct</mat-hint>
+      <mat-error *ngIf="form.hasError('required', 'email')">Email is required</mat-error>
+    </mat-form-field>
+    <mat-form-field class="mat-list-item">
+      <input matInput type="password" placeholder="****" formControlName="password">
+      <mat-hint align="end">Check if the caps lock is on</mat-hint>
+      <mat-error *ngIf="form.hasError('required', 'password')">Password is not correct</mat-error>
+    </mat-form-field>
+    <button mat-raised-button [disabled]="form.invalid">Login</button>
+    <button mat-raised-button type="button" (click)="resetLoginForm()">Reset</button>
+  </form>
+</div>
