@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {BookService} from '../book.service';
 import {ActivatedRoute} from '@angular/router';
+import {IBook, IReview} from '../../shared/interfaces';
 
 @Component({
   selector: 'app-book-details',
@@ -8,6 +9,9 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./book-details.component.css']
 })
 export class BookDetailsComponent implements OnInit {
+
+  // @ts-ignore
+  book: IBook<IReview> = null;
 
   constructor(private activatedRoute: ActivatedRoute,
     private bookService:BookService) {

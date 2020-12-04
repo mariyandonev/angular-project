@@ -3,8 +3,10 @@
   width: 50%;
   text-align: center;
   position: relative;
+  top: 50px;
   left: 375px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  background-color: aliceblue;
 }
 .theme-container a {
   text-decoration: none;

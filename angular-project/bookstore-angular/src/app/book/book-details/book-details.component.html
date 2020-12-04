@@ -1,1 +1,6 @@
-<p>book-details works!</p>
+<h2>{{book.bookName}}</h2>
+<p>{{book.created_at}}</p>
+<p>{{book.subscribers.length}}</p>
+<div *ngFor="let review of book.reviews">
+  <p>{{review}}</p>
+</div>

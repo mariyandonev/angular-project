@@ -16,15 +16,15 @@ export class LoginComponent implements OnInit{
     this.form.reset();
   }
 
+  //TODO:
   loginHandler(data: any): void {
-
     console.log(data);
   }
 
   ngOnInit(): void {
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email], []],
-      password: ['', [Validators.required, Validators.minLength(3)], []],
+      password: ['', [Validators.required, Validators.minLength(5)], []],
     })
   }
 }

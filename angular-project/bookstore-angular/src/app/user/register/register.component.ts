@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Form, FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {rePasswordValidatorFactory} from '../../shared/validators';
 
 @Component({
   selector: 'app-register',
@@ -13,23 +14,20 @@ export class RegisterComponent implements OnInit {
 
   constructor(private fb: FormBuilder) {
 
-  }
-
-  ngOnInit(): void {
+    const passwordControl = this.fb.control('', [Validators.required, Validators.minLength(5)]);
     this.form = this.fb.group({
-      email: ['', [Validators.required, Validators.email], []],
-      username: ['', [Validators.required], []],
-      password: ['', [Validators.required, Validators.minLength(3)], []],
+      email: ['', [Validators.required, Validators.email]],
+      username: ['', [Validators.required, Validators.minLength(3)]],
+      password: passwordControl,
+      passwordConfirm: ['', [Validators.required, Validators.minLength(5), rePasswordValidatorFactory(passwordControl)]],
     })
   }
 
-  // checkPasswords(form: FormGroup) {
-  //   let pass = form.get('password')?.value;
-  //   let confirmPass = form.get('passwordConfirm')?.value;
-  //
-  //   return pass === confirmPass ? null : {notSame: true}
-  // }
+  ngOnInit(): void {
 
+  }
+
+  //TODO:
   registerHandler(): void {
     console.log(this.form.value)
   }

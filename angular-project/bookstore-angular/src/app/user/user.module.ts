@@ -20,11 +20,11 @@ import { MatCardModule} from '@angular/material/card';
     CommonModule,
     UserRoutingModule,
     ReactiveFormsModule,
-    FormsModule,
     MatFormFieldModule,
     MatButtonModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    FormsModule
   ],
   exports: [
     MatFormFieldModule,

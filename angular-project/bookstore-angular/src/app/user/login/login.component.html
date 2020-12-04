@@ -1,5 +1,6 @@
 <div class="image-form">
   <form [formGroup]="form" (ngSubmit)="loginHandler(form.value)" id="login-form">
+    <h2>Login Form</h2>
     <mat-form-field class="mat-list-item">
       <input matInput type="email" placeholder="doe.john@mail.com" formControlName="email">
       <mat-hint align="end">Email must be correct</mat-hint>
@@ -8,9 +9,13 @@
     <mat-form-field class="mat-list-item">
       <input matInput type="password" placeholder="****" formControlName="password">
       <mat-hint align="end">Check if the caps lock is on</mat-hint>
-      <mat-error *ngIf="form.hasError('required', 'password')">Password is not correct</mat-error>
+      <mat-error *ngIf="form.hasError('required', 'password')">Password is required</mat-error>
+      <mat-error *ngIf="form.hasError('minlength', 'password')">Password must be 5 symbols or more</mat-error>
     </mat-form-field>
     <button mat-raised-button [disabled]="form.invalid">Login</button>
     <button mat-raised-button type="button" (click)="resetLoginForm()">Reset</button>
+    <div>
+      <p>or <a style="font-size: 17px" mat-button routerLink="/user/register">REGISTER</a></p>
+    </div>
   </form>
 </div>

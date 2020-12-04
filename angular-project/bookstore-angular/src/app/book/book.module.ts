@@ -6,12 +6,10 @@ import {BookItemComponent} from './book-item/book-item.component';
 import {BookDetailsComponent} from './book-details/book-details.component';
 import {BookService} from './book.service';
 
-
-
 @NgModule({
   declarations: [
-    BookItemComponent,
     BooksComponent,
+    BookItemComponent,
     BookDetailsComponent
   ],
   imports: [

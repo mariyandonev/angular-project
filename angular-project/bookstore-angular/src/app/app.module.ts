@@ -12,6 +12,9 @@ import {UserModule} from './user/user.module';
 import {BookModule} from './book/book.module';
 import {HttpClientModule} from '@angular/common/http';
 import { NotFoundComponent } from './not-found/not-found.component';
+import {ReviewModule} from './review/review.module';
+import {ReviewRoutingModule} from './review/review-routing.module';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -23,10 +26,13 @@ import { NotFoundComponent } from './not-found/not-found.component';
     CoreModule,
     BrowserModule,
     AppRoutingModule,
+    ReviewRoutingModule,
     BrowserAnimationsModule,
     UserModule,
     BookModule,
-    HttpClientModule
+    HttpClientModule,
+    ReviewModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [

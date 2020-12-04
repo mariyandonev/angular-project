@@ -1,8 +1,10 @@
-<div *ngIf="books">
-  <app-book-item *ngFor="let book of books" [book]="book">
-  </app-book-item>
-  <div *ngIf="books.length === 0">No Books to show!</div>
-</div>
-<div *ngIf="!books">
-  Loading...
+<div class="image-form">
+  <div *ngIf="books">
+    <app-book-item *ngFor="let book of books" [book]="book">
+    </app-book-item>
+    <div *ngIf="books.length === 0">No Books to show!</div>
+  </div>
+  <div *ngIf="!books">
+    Loading...
+  </div>
 </div>

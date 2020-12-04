@@ -1,9 +1,9 @@
 import {IBase} from './base';
 import {IUser} from './user';
 
-export interface IBook extends IBase {
+export interface IBook<T = string> extends IBase {
   subscribers: string[];
-  reviews: string[];
+  reviews: T[];
   _id: string,
   bookName: string;
   userId: IUser;
