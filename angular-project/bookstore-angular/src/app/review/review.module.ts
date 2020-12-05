@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 import { ReviewsComponent } from './reviews/reviews.component';
 import {ReviewService} from './review.service';
 
-
-
 @NgModule({
   declarations: [
     ReviewsComponent

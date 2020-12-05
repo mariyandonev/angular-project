@@ -1,0 +1,30 @@
+.review-container{
+  height: auto;
+  width: 50%;
+  text-align: center;
+  position: relative;
+  top: 50px;
+  left: 375px;
+  margin-bottom: 10px;
+  background-color: aliceblue;
+}
+
+.review-container a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.review-container span {
+  font-weight: bold;
+}
+
+.review-container h2, p {
+  padding: 0.3em 0 0.2em;
+  margin: 0;
+}
+
+.image-form {
+  background: url("../../../assets/library1.jpg") no-repeat center;
+  background-size: cover;
+  height: 604px;
+}

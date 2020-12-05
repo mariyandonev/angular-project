@@ -1,4 +1,4 @@
-.theme-container{
+.book-container{
   height: auto;
   width: 50%;
   text-align: center;
@@ -8,21 +8,21 @@
   margin-bottom: 10px;
   background-color: aliceblue;
 }
-.theme-container a {
+.book-container a {
   text-decoration: none;
   color: inherit;
 }
 
-.theme-container span {
+.book-container span {
   font-weight: bold;
 }
 
-.theme-container h2, p {
+.book-container h2, p {
   padding: 0.3em 0 0.2em;
   margin: 0;
 }
 
-.theme-name-wrapper {
+.book-name-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -33,10 +33,10 @@
   margin-top: 1em;
 }
 
-.theme-title {
+.book-title {
   padding: 0;
 }
 
-.theme-name {
+.book-name {
   width: 100%;
 }

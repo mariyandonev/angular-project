@@ -14,7 +14,7 @@ export class BookDetailsComponent implements OnInit {
   book: IBook<IReview> = null;
 
   constructor(private activatedRoute: ActivatedRoute,
-    private bookService:BookService) {
+    private bookService: BookService) {
     const id = activatedRoute.snapshot.params.id;
     bookService.loadBook(id);
   }

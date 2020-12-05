@@ -15,6 +15,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import {ReviewModule} from './review/review.module';
 import {ReviewRoutingModule} from './review/review-routing.module';
 import {MatButtonModule} from '@angular/material/button';
+import {ReviewService} from './review/review.service';
 
 @NgModule({
   declarations: [
@@ -32,9 +33,11 @@ import {MatButtonModule} from '@angular/material/button';
     BookModule,
     HttpClientModule,
     ReviewModule,
-    MatButtonModule
+    MatButtonModule,
   ],
-  providers: [],
+  providers: [
+    ReviewService
+  ],
   bootstrap: [
     AppComponent,
     HeaderComponent,

@@ -1,0 +1,20 @@
+#create-book-form{
+  width: 30%;
+  text-align: center;
+  display: grid;
+  padding: 16px;
+  background-color: white;
+  position: relative;
+  top: 8em;
+  left: 8em;
+}
+
+#register-form button {
+  margin-top: 20px;
+}
+
+.image-form {
+  background: url("../../../assets/library-form.jpg") no-repeat center;
+  background-size: cover;
+  height: 619px;
+}

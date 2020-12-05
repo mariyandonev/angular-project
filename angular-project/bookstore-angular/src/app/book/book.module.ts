@@ -5,16 +5,26 @@ import {BooksComponent} from './books/books.component';
 import {BookItemComponent} from './book-item/book-item.component';
 import {BookDetailsComponent} from './book-details/book-details.component';
 import {BookService} from './book.service';
+import { CreateBookComponent } from './create-book/create-book.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
     BooksComponent,
     BookItemComponent,
-    BookDetailsComponent
+    BookDetailsComponent,
+    CreateBookComponent
   ],
   imports: [
     CommonModule,
-    BookRoutingModule
+    BookRoutingModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatInputModule,
+    ReactiveFormsModule,
   ],
   providers: [
     BookService
