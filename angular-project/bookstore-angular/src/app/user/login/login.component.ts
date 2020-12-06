@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {UserService} from '../user.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,16 +12,9 @@ export class LoginComponent implements OnInit{
 
   // @ts-ignore
   form: FormGroup;
-  constructor(private fb: FormBuilder) { }
+  errorMessage = '';
 
-  resetLoginForm(): void {
-    this.form.reset();
-  }
-
-  //TODO:
-  loginHandler(data: any): void {
-    console.log(data);
-  }
+  constructor(private fb: FormBuilder, private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
     this.form = this.fb.group({
@@ -27,4 +22,24 @@ export class LoginComponent implements OnInit{
       password: ['', [Validators.required, Validators.minLength(5)]],
     })
   }
+
+  loginHandler(values: { email: string, password: string }): void {
+    this.errorMessage = '';
+
+    this.userService.login(values).subscribe({
+      next: () => {
+        this.router.navigate(['/book/allbooks']);
+        console.log(values)
+      },
+      error: err => {
+        this.errorMessage = 'There is some kind of an error!';
+        console.error(err);
+      }
+    })
+  }
+
+  resetLoginForm(): void {
+    this.form.reset();
+  }
+
 }
