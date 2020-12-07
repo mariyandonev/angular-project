@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import {IUser} from '../shared/interfaces';
-import {Observable} from 'rxjs';
+import {Observable} from 'rxjs/internal/Observable';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
-import {tap} from 'rxjs/operators';
+import {catchError, tap} from 'rxjs/operators';
 
 const apiUrl = environment.apiUrl;
 
@@ -16,6 +16,18 @@ export class UserService {
   currentUser: IUser | null;
 
   constructor(private http: HttpClient) { }
+
+  getCurrentUserProfile(): Observable<any>{
+    return this.http.get(`${apiUrl}/users/profile`, { withCredentials: true })
+    // @ts-ignore
+      .pipe(tap((user) => this.currentUser = user),
+        catchError(async () => this.currentUser = null)
+      );
+  }
+
+  get isLogged(): boolean{
+    return !!this.currentUser;
+  }
 
   register(userData: IUser): Observable<any>{
     return this.http.post(`${apiUrl}/users/register`, userData);

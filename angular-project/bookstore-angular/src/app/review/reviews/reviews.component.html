@@ -2,7 +2,7 @@
   <div class="review-container">
     <div *ngIf="reviews">
       <div *ngFor="let review of reviews">
-        <h3>{{review.bookId.bookName}}</h3>
+        <h3>{{review.userId.username}}</h3>
         <p>{{review.text}}</p>
         <p>{{review.created_at}}</p>
       </div>

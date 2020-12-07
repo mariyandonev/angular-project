@@ -12,28 +12,28 @@
     </div>
     <div class="col-nav">
       <ul>
-        <li>
+        <li *ngIf="!isLogged">
           <a mat-stroked-button routerLink="/user/login">LOGIN</a>
         </li>
-        <li>
+        <li *ngIf="!isLogged">
           <a mat-stroked-button routerLink="/user/register">REGISTER</a>
         </li>
-        <li>
+        <li *ngIf="!isLogged">
+          <a mat-stroked-button routerLink="/reviews">REVIEWS</a>
+        </li>
+        <li *ngIf="isLogged">
           <a mat-stroked-button routerLink="/book/allbooks">BOOKS</a>
         </li>
-        <li>
-          <a mat-stroked-button href="#">AUTHORS</a>
+        <li *ngIf="isLogged">
+          <a mat-stroked-button routerLink="/user/profile">PROFILE</a>
+        </li>
+        <li *ngIf="isLogged">
+          <a mat-stroked-button routerLink="/book/create">CREATE BOOK</a>
+        </li>
+        <li *ngIf="isLogged">
+          <a mat-stroked-button (click)="logoutHandler()">LOGOUT</a>
         </li>
       </ul>
     </div>
-
-    <!-- when LOGGED in -->
-
-    <!--        <div class="col-nav">-->
-    <!--            <a href="#" class="button-nav">RANKINGS</a>-->
-    <!--        </div>-->
-    <!--        <div class="col-nav">-->
-    <!--            <a href="#" class="button-nav">FAVOURITE BOOKS</a>-->
-    <!--        </div>-->
   </div>
 </header>

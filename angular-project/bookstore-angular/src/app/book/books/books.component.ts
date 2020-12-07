@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {IBook} from '../../shared/interfaces';
 import {BookService} from '../book.service';
+import {Pipe} from '@angular/core';
 
 @Component({
   selector: 'app-books',

@@ -4,6 +4,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import {RouterModule} from '@angular/router';
 import {MatButtonModule} from '@angular/material/button';
+import {AuthGuard} from './guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,9 @@ import {MatButtonModule} from '@angular/material/button';
     CommonModule,
     RouterModule,
     MatButtonModule,
+  ],
+  providers: [
+    AuthGuard
   ],
   exports: [
     HeaderComponent,
