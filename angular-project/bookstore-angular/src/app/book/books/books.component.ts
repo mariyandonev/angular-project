@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {IBook} from '../../shared/interfaces';
 import {BookService} from '../book.service';
-import {Pipe} from '@angular/core';
 
 @Component({
   selector: 'app-books',
@@ -9,7 +8,6 @@ import {Pipe} from '@angular/core';
   styleUrls: ['./books.component.css']
 })
 export class BooksComponent implements OnInit {
-
 
   // @ts-ignore
   books: IBook[];

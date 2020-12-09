@@ -1,12 +1,15 @@
 .review-container{
-  height: auto;
+  float: left;
+  position: absolute;
+  right: 360px;
   width: 50%;
-  text-align: center;
-  position: relative;
-  top: 50px;
-  left: 375px;
-  margin-bottom: 10px;
+  display: inline-grid;
+  grid-template-rows: repeat(2, auto);
+  top: 0;
+  z-index: 1000;
   background-color: aliceblue;
+  text-align: center;
+  margin-top: 12px;
 }
 
 .review-container a {
@@ -24,7 +27,14 @@
 }
 
 .image-form {
-  background: url("../../../assets/library1.jpg") no-repeat center;
-  background-size: cover;
-  height: 604px;
+  position: relative;
+}
+
+.image-form img{
+  width: 100%;
+  object-fit: cover;
+}
+
+.review-item {
+  margin-top: 15px;
 }

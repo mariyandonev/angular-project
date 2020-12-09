@@ -2,21 +2,21 @@
 <div class="book-container">
   <div class="book-name-wrapper">
     <div class="book-name">
-      <a routerLink="/book/details/{{book._id}}" class="normal">
+      <a style="font-size: 13px" mat-raised-button routerLink="/book/details/{{book._id}}" class="normal">
         <h2>{{book.bookName}}</h2>
       </a>
       <div>
         <div>
           <p>Date:
-            <time>{{book.created_at}}</time>
+            <time>{{pipe.transform(book.created_at, 'short')}}</time>
           </p>
           <div class="nick-name">
-            <p>Username: <span>{{book.userId.username}}</span></p>
+            <p>Number of Reviews: <span>{{book.reviews.length}}</span></p>
           </div>
         </div>
         <div>
-          <!-- <button class="subscribe">Subscribe</button> -->
           <p>Subscribers: <span>{{book.subscribers.length}}</span></p>
+          <button style="font-size: 10px" mat-raised-button class="subscribe">Subscribe</button>
         </div>
       </div>
     </div>

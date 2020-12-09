@@ -1,5 +1,19 @@
 .image-form {
-  background: url("../../../assets/library1.jpg") no-repeat center;
-  background-size: cover;
-  height: 604px;
+position: relative;
+}
+
+.image-form img{
+  width: 100%;
+  object-fit: cover;
+}
+
+#forBooks {
+  float: left;
+  position: absolute;
+  right: 170px;
+  width: 100%;
+  display: inline-grid;
+  grid-template-columns: repeat(2, 5fr);
+  top: 0;
+  z-index: 1000;
 }

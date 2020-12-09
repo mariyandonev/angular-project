@@ -4,7 +4,8 @@ import {IUser} from './user';
 export interface IBook<T = string> extends IBase {
   subscribers: string[];
   reviews: T[];
-  _id: string,
+  bookPrice: number;
+  bookAuthor: string;
   bookName: string;
   userId: IUser;
 }

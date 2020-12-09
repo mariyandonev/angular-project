@@ -23,10 +23,10 @@ function getBook(req, res, next) {
 }
 
 function createBook(req, res, next) {
-    const { bookName, reviewText } = req.body;
+    const { bookName, bookPrice, bookAuthor, reviewText } = req.body;
     const { _id: userId } = req.user;
 
-    bookModel.create({ bookName, userId, subscribers: [userId] })
+    bookModel.create({ bookName, bookPrice, bookAuthor, userId, subscribers: [userId] })
         .then(book => {
             newReview(reviewText, userId, book._id)
                 .then(([_, updatedBook]) => res.status(200).json(updatedBook))

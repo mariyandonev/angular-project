@@ -13,30 +13,35 @@ import {BookModule} from './book/book.module';
 import {HttpClientModule} from '@angular/common/http';
 import { NotFoundComponent } from './not-found/not-found.component';
 import {ReviewModule} from './review/review.module';
-import {ReviewRoutingModule} from './review/review-routing.module';
 import {MatButtonModule} from '@angular/material/button';
 import {ReviewService} from './review/review.service';
+import {OrderModule} from 'ngx-order-pipe';
+import { TopComponent } from './top/top.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NotFoundComponent,
+    TopComponent,
   ],
   imports: [
     CoreModule,
     BrowserModule,
     AppRoutingModule,
-    ReviewRoutingModule,
     BrowserAnimationsModule,
     UserModule,
     BookModule,
     HttpClientModule,
     ReviewModule,
     MatButtonModule,
+    OrderModule
   ],
   providers: [
     ReviewService
+  ],
+  exports: [
+    AppComponent
   ],
   bootstrap: [
     AppComponent,

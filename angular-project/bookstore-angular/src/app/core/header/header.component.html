@@ -5,10 +5,13 @@
         <li>
           <a mat-stroked-button routerLink="/home">BOOKSTORE</a>
         </li>
+        <li>
+          <a mat-stroked-button routerLink="/top">RANKINGS</a>
+        </li>
       </ul>
     </div>
     <div id="nav-text">
-      <i><p>Welcome to the biggest store for books</p></i>
+      <i>Welcome to the biggest store for books</i>
     </div>
     <div class="col-nav">
       <ul>
@@ -29,6 +32,9 @@
         </li>
         <li *ngIf="isLogged">
           <a mat-stroked-button routerLink="/book/create">CREATE BOOK</a>
+        </li>
+        <li *ngIf="isLogged">
+          <a mat-stroked-button routerLink="/reviews">BOOK REVIEWS</a>
         </li>
         <li *ngIf="isLogged">
           <a mat-stroked-button (click)="logoutHandler()">LOGOUT</a>

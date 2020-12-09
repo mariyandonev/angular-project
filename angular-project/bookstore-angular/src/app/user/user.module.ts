@@ -14,7 +14,8 @@ import { MatCardModule} from '@angular/material/card';
   declarations: [
     LoginComponent,
     RegisterComponent,
-    ProfileComponent
+    ProfileComponent,
+    // BookItemComponent
   ],
   imports: [
     CommonModule,

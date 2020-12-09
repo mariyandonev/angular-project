@@ -14,14 +14,14 @@ export class BookService {
   constructor(private http: HttpClient) { }
 
   loadBooks(): Observable<IBook[]>{
-    return this.http.get<IBook[]>(`${apiUrl}/books`)
+    return this.http.get<IBook[]>(`${apiUrl}/books`, { withCredentials: true })
   }
 
-  loadBook(id: string): Observable<IBook>{
-    return this.http.get<IBook>(`${apiUrl}/books/${id}`);
+  loadBook(id: string): Observable<IBook<IReview>>{
+    return this.http.get<IBook<IReview>>(`${apiUrl}/books/${id}`, { withCredentials: true });
   }
 
   saveBook(data: IBook): Observable<IBook<any>>{
-    return this.http.post<IBook<IReview>>(`${apiUrl}/books`, data, { withCredentials:true });
+    return this.http.post<IBook<any>>(`${apiUrl}/books`, data, { withCredentials: true });
   }
 }

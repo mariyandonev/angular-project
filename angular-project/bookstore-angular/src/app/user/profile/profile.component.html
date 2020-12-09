@@ -4,10 +4,17 @@
       <div mat-card-avatar class="profile-pic"></div>
       <mat-card-title>Username:</mat-card-title>
       <mat-card-subtitle>{{currentUser!.username}}</mat-card-subtitle>
-      <mat-card-title *ngIf="currentUser!.books.length === 0">Books:</mat-card-title>
-      <mat-card-subtitle>No books to show</mat-card-subtitle>
-      <mat-card-title *ngIf="currentUser!.books.length > 0">Books:</mat-card-title>
-      <mat-card-subtitle>{{currentUser!.books}}</mat-card-subtitle>
+      <mat-card-title>Books:</mat-card-title>
+      <mat-card-subtitle *ngIf="currentUser!.books.length === 0">No books to show</mat-card-subtitle>
+      <mat-card-subtitle *ngIf="currentUser!.books.length > 0">
+        <div *ngFor="let book of books">
+          <div *ngFor="let bookId of currentUser!.books">
+            <div *ngIf="bookId === book._id">
+              {{book.bookName}}
+            </div>
+          </div>
+        </div>
+      </mat-card-subtitle>
       <mat-card-title>Email:</mat-card-title>
       <mat-card-subtitle>{{currentUser!.email}}</mat-card-subtitle>
     </mat-card-header>

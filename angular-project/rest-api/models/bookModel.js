@@ -1,18 +1,19 @@
-const fs = require('fs');
 const mongoose = require('mongoose');
 const { ObjectId } = mongoose.Schema.Types;
-const imgPath = "./static/book.png"
 
 const bookSchema = new mongoose.Schema({
     bookName: {
         type: String,
         required: true
     },
-    // bookImage: {
-    //     data: Buffer,
-    //     type: String,
-    //     required: true
-    // },
+    bookPrice: {
+        type: Number,
+        required: true
+    },
+    bookAuthor: {
+        type: String,
+        required: true
+    },
     subscribers: [{
         type: ObjectId,
         ref: "User"

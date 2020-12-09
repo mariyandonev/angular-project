@@ -1,6 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {IReview} from '../../shared/interfaces';
 import {ReviewService} from '../review.service';
+import {UserService} from '../../user/user.service';
+import {DatePipe} from '@angular/common';
 
 @Component({
   selector: 'app-reviews',
@@ -15,7 +17,13 @@ export class ReviewsComponent implements OnInit {
   // @ts-ignore
   reviews: IReview[];
 
-  constructor(private reviewService: ReviewService) { }
+  pipe = new DatePipe('en-US');
+
+  constructor(private reviewService: ReviewService, private userService: UserService) { }
+
+  get isLogged(): boolean {
+    return this.userService.isLogged;
+  }
 
   ngOnInit(): void {
     this.reviewService.loadAllReviews(this.bookId, 5)

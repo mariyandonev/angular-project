@@ -5,19 +5,27 @@
       <mat-label>Book: </mat-label>
       <input matInput type="text" formControlName="bookName">
       <mat-hint align="end">Name of your book</mat-hint>
-      <mat-error *ngIf="form.hasError('required', 'bookName')">Book's name is required</mat-error>
+      <mat-error *ngIf="form.hasError('required')">Book's name is required</mat-error>
     </mat-form-field>
     <mat-form-field class="mat-list-item">
       <mat-label>Author: </mat-label>
-      <input matInput type="text" formControlName="authorName">
-      <mat-hint align="end">The name of the author</mat-hint>
-      <mat-error *ngIf="form.hasError('required', 'authorName')">Author's name is required</mat-error>
+      <input matInput type="text" formControlName="bookAuthor">
+      <mat-hint align="end">The name of the author / your name</mat-hint>
+      <mat-error *ngIf="form.hasError('required')">Author's name is required</mat-error>
     </mat-form-field>
     <mat-form-field class="mat-list-item">
-      <mat-label>ISBN: </mat-label>
-      <input matInput type="text" formControlName="isbn">
-      <mat-hint align="end">Input your 9 digit isbn</mat-hint>
-      <mat-error *ngIf="form.hasError('required', 'isbn')">ISBN is required</mat-error>
+      <mat-label>Price: </mat-label>
+      <input matInput type="number" formControlName="bookPrice">
+      <mat-hint align="end">Valid price with dot delimiter</mat-hint>
+      <mat-error *ngIf="form.hasError('required')">Price is required</mat-error>
+      <mat-error *ngIf="form.hasError('pattern')">Price must be valid number</mat-error>
+    </mat-form-field>
+    <mat-form-field class="mat-list-item">
+      <mat-label>Review: </mat-label>
+      <textarea matInput type="text" formControlName="reviewText"></textarea>
+      <mat-hint align="end">Write a small review</mat-hint>
+      <mat-error *ngIf="form.hasError('required')">Review is required</mat-error>
+      <mat-error *ngIf="form.hasError('maxlength')">200 symbols is the limit</mat-error>
     </mat-form-field>
     <button mat-raised-button [disabled]="form.invalid">Create</button>
     <button mat-raised-button type="button" routerLink="/home">Cancel</button>
