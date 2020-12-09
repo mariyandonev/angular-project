@@ -23,24 +23,24 @@ You can see top rankings and certain information about the books without logging
  To create:
  
  1. User { 
-   books
-   reviews
-   email
-   username
-   password
+   books,
+   reviews,
+   email,
+   username,
+   password,
  } 
  2. Book {
-  subscribers
-  reviews
-  bookPrice
-  bookAuthor
-  bookName
-  userId
+  subscribers,
+  reviews,
+  bookPrice,
+  bookAuthor,
+  bookName,
+  userId,
 }
 3. Review {
-  likes
-  text
-  userId
-  bookId
+  likes,
+  text,
+  userId,
+  bookId,
 }
 
