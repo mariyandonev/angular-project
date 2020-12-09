@@ -20,3 +20,27 @@ You can see top rankings and certain information about the books without logging
  + you WOULD be able to make a review for a certain book
  + you WOULD be able to subscripe/like for a book
  
+ To create:
+ 
+ 1. User { 
+   books
+   reviews
+   email
+   username
+   password
+ } 
+ 2. Book {
+  subscribers
+  reviews
+  bookPrice
+  bookAuthor
+  bookName
+  userId
+}
+3. Review {
+  likes
+  text
+  userId
+  bookId
+}
+
