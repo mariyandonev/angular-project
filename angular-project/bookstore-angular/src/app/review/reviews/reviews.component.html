@@ -4,9 +4,9 @@
     <div class="review-wrapper">
       <div *ngIf="reviews && !isLogged">
         <div *ngFor="let review of reviews" class="review-item">
-            <h3>{{review.userId.username}}</h3>
-            <p>{{review.text}}</p>
-            <p>{{review.created_at}}</p>
+          <h3>{{review.userId.username}}</h3>
+          <p>{{review.text}}</p>
+          <p>{{review.created_at}}</p>
         </div>
       </div>
       <div *ngIf="reviews && isLogged">
@@ -21,8 +21,12 @@
         Loading...
       </div>
     </div>
-    <p style="font-size: 18px"><i>If you want to find out for which books are these reviews or what are their prices </i></p>
-    <p><i>you can </i> <a mat-raised-button routerLink="/user/login">LOGIN</a> or <a mat-raised-button routerLink="/user/register">REGISTER</a>
-    </p>
+    <div *ngIf="!isLogged">
+      <p style="font-size: 18px"><i>If you want to find out for which books are these reviews or what are their
+        prices </i></p>
+      <p><i>you can </i> <a mat-raised-button routerLink="/user/login">LOGIN</a> or <a mat-raised-button
+                                                                                       routerLink="/user/register">REGISTER</a>
+      </p>
+    </div>
   </div>
 </div>
