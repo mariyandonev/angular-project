@@ -1,6 +1,6 @@
 # angular-project
 
-The project is about a bookstore/library. The user can look through the books and see information about the books. Moreover, when the user is logged, the user can see more information about the books, his/her profile and more...
+The project is about a bookstore/library. Whithout registration the user can see rankings of the books and reviews from other users. Moreover, when the user is logged in, the user can see details about the books, his/her profile, create book/review...
 
 REST-API:
 base /api
