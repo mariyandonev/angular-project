@@ -1,6 +1,55 @@
-<h2>{{book.bookName}}</h2>
-<p>{{book.created_at}}</p>
-<p>{{book.subscribers.length}}</p>
-<div *ngFor="let review of book.reviews">
-  <p>{{review.text}}</p>
+<div class="image-form">
+  <ng-template #bookDetails>
+    <mat-card class="edit-book">
+      <mat-card-header>
+        <div mat-card-avatar class="book-image"></div>
+        <mat-card-title>Book name:</mat-card-title>
+        <mat-card-subtitle>{{book?.bookName}}</mat-card-subtitle>
+        <mat-card-title>Author:</mat-card-title>
+        <mat-card-subtitle> {{book?.bookAuthor || "No data to show"}}
+        </mat-card-subtitle>
+        <mat-card-title>Created on:</mat-card-title>
+        <mat-card-subtitle>{{pipe.transform(book?.created_at, 'short') || "No data to show"}}</mat-card-subtitle>
+        <mat-card-title>Book price:</mat-card-title>
+        <mat-card-subtitle>{{book?.bookPrice || "No data to show"}}</mat-card-subtitle>
+      </mat-card-header>
+      <div *ngFor="let bookId of currentUser?.books">
+        <button mat-raised-button color="primary" *ngIf="book?._id === bookId" (click)="toggleEdit()">EDIT</button>
+        <button mat-raised-button color="accent" *ngIf="!checkSubscription() && book?._id !== bookId"
+                (click)="subscribeToBook(book._id, book.userId._id)">Subscribe
+        </button>
+        <button mat-raised-button color="accent" *ngIf="checkSubscription() && book._id !== bookId">Unsubscribe
+        </button>
+      </div>
+    </mat-card>
+  </ng-template>
+
+  <ng-template #editDetails>
+    <mat-card class="edit-book">
+      <form #form="ngForm" (ngSubmit)="editBookDetails(form.value, book._id)">
+        <mat-card-header style="display: grid">
+          <div mat-card-avatar class="book-image"></div>
+          <div mat-card-avatar class="profile-pic"></div>
+          <mat-form-field>
+            <mat-label>Book Name:</mat-label>
+            <input matInput type="text" name="bookName" [ngModel]="book?.bookName" ngModel>
+            <mat-hint align="end">The name of the book</mat-hint>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Author's name:</mat-label>
+            <input matInput type="text" name="bookAuthor" [ngModel]="book?.bookAuthor" ngModel>
+            <mat-hint align="end">Your name or book author</mat-hint>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Price:</mat-label>
+            <input matInput type="text" name="bookPrice" [ngModel]="book?.bookPrice" ngModel>
+            <mat-hint align="end">Price must be valid</mat-hint>
+          </mat-form-field>
+        </mat-card-header>
+        <button mat-raised-button color="warn" (click)="toggleEdit()">CANCEL</button>
+        <button mat-raised-button color="primary">SAVE</button>
+      </form>
+    </mat-card>
+  </ng-template>
+  <ng-container *ngTemplateOutlet="edit ? editDetails : bookDetails"></ng-container>
 </div>

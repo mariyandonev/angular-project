@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit{
   // @ts-ignore
   form: FormGroup;
   errorMessage = '';
+  hide = true;
 
   constructor(private fb: FormBuilder, private userService: UserService, private router: Router) { }
 
@@ -29,13 +30,16 @@ export class LoginComponent implements OnInit{
     this.userService.login(values).subscribe({
       next: () => {
         this.router.navigate(['/book/allbooks']);
-        console.log(values)
       },
       error: err => {
         this.errorMessage = 'There is some kind of an error!';
         console.error(err);
       }
     })
+  }
+
+  toggleHide(): void {
+    this.hide = !this.hide;
   }
 
   resetLoginForm(): void {

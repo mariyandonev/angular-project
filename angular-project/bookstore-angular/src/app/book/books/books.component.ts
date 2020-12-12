@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit } from '@angular/core';
 import {IBook} from '../../shared/interfaces';
 import {BookService} from '../book.service';
 

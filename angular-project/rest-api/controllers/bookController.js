@@ -34,6 +34,22 @@ function createBook(req, res, next) {
         .catch(next);
 }
 
+function deleteBook(req, res, next) {
+    bookModel.deleteOne({ _id: req.params.bookId })
+        .then((result) => {
+            res.status(200).json(result);
+        })
+}
+
+function editBookInfo(req, res, next) {
+    const { bookId } = req.book;
+    const { bookName, bookAuthor, bookPrice } = req.body;
+
+    bookModel.findOneAndUpdate({ _id: bookId }, { bookName, bookAuthor, bookPrice }, { new: true })
+        .then(updatedBook => { res.status(200).json(updatedBook) })
+        .catch(next);
+}
+
 function subscribe(req, res, next) {
     const bookId = req.params.bookId;
     const { _id: userId } = req.user;
@@ -48,5 +64,7 @@ module.exports = {
     getBooks,
     createBook,
     getBook,
+    deleteBook,
     subscribe,
+    editBookInfo
 }

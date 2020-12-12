@@ -1,22 +1,54 @@
 <div class="image-form">
-  <mat-card class="profile">
-    <mat-card-header>
-      <div mat-card-avatar class="profile-pic"></div>
-      <mat-card-title>Username:</mat-card-title>
-      <mat-card-subtitle>{{currentUser!.username}}</mat-card-subtitle>
-      <mat-card-title>Books:</mat-card-title>
-      <mat-card-subtitle *ngIf="currentUser!.books.length === 0">No books to show</mat-card-subtitle>
-      <mat-card-subtitle *ngIf="currentUser!.books.length > 0">
-        <div *ngFor="let book of books">
-          <div *ngFor="let bookId of currentUser!.books">
-            <div *ngIf="bookId === book._id">
-              {{book.bookName}}
+  <ng-template #defaultTemplate>
+    <mat-card class="profile">
+      <mat-card-header>
+        <div mat-card-avatar class="profile-pic"></div>
+        <mat-card-title>Username:</mat-card-title>
+        <mat-card-subtitle>{{currentUser!.username}}</mat-card-subtitle>
+        <mat-card-title>Books:</mat-card-title>
+        <mat-card-subtitle *ngIf="currentUser!.books.length === 0">No books to show</mat-card-subtitle>
+        <mat-card-subtitle *ngIf="currentUser!.books.length > 0">
+          <div *ngFor="let book of books">
+            <div *ngFor="let bookId of currentUser!.books">
+              <div *ngIf="bookId === book._id">
+                <a mat-raised-button routerLink="/book/details/{{book._id}}">{{book.bookName}}</a>
+              </div>
             </div>
           </div>
-        </div>
-      </mat-card-subtitle>
-      <mat-card-title>Email:</mat-card-title>
-      <mat-card-subtitle>{{currentUser!.email}}</mat-card-subtitle>
-    </mat-card-header>
-  </mat-card>
+        </mat-card-subtitle>
+        <mat-card-title>Email:</mat-card-title>
+        <mat-card-subtitle>{{currentUser!.email}}</mat-card-subtitle>
+      </mat-card-header>
+      <button mat-raised-button color="primary" (click)="toggleEdit()">EDIT</button>
+    </mat-card>
+  </ng-template>
+
+  <ng-template #editTemplate>
+    <mat-card class="profile">
+      <form #form="ngForm" (ngSubmit)="updateProfileHandler()">
+        <mat-card-header style="display: grid">
+          <div mat-card-avatar class="profile-pic"></div>
+          <mat-form-field>
+            <mat-label>Username:</mat-label>
+            <input matInput type="text" name="username" [ngModel]="currentUser?.username" ngModel required minlength="5">
+            <mat-error *ngIf="form.touched && form.errors?.required">Username is required</mat-error>
+            <mat-error *ngIf="form.touched && form.errors?.minlength">Username must be minimum 5 symbols</mat-error>
+            <mat-hint align="end">Username must be at least 5 symbols</mat-hint>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Email:</mat-label>
+            <input matInput type="text" name="email" [ngModel]="currentUser?.email" ngModel required email>
+            <mat-error *ngIf="form.touched && form.errors?.required">Username is required</mat-error>
+            <mat-error *ngIf="form.touched && form.errors?.email">Email is not valid</mat-error>
+            <mat-hint align="end">Email must be valid</mat-hint>
+          </mat-form-field>
+        </mat-card-header>
+        <button mat-raised-button color="warn" (click)="toggleEdit()">CANCEL</button>
+        <button mat-raised-button color="primary" [disabled]="form.invalid">SAVE</button>
+      </form>
+    </mat-card>
+  </ng-template>
+
+  <ng-container *ngTemplateOutlet="edit ? editTemplate : defaultTemplate"></ng-container>
 </div>
+

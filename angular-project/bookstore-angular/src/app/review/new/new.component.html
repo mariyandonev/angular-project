@@ -1,0 +1,15 @@
+<form #form="ngForm" (ngSubmit)="newReviewHandler(form.value)">
+  <mat-form-field appearance="fill">
+    <mat-label>Book:</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let book of books" [value]="book.bookName">
+        <div #bookName>{{book.bookName}}</div>
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <textarea matInput type="text" formControlName="reviewText"></textarea>
+  </mat-form-field>
+
+  <button mat-raised-button [disabled]="form.invalid">Write the Review</button>
+</form>

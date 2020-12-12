@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {IBook} from '../../shared/interfaces';
 import {DatePipe} from '@angular/common';
+import {BookService} from '../book.service';
 
 @Component({
   selector: 'app-book-item',
@@ -11,12 +12,10 @@ export class BookItemComponent implements OnInit {
 
   // @ts-ignore
   @Input() book: IBook;
-
   pipe = new DatePipe('en-US');
 
   constructor() { }
 
   ngOnInit(): void {
   }
-
 }

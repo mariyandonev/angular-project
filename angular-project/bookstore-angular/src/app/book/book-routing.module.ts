@@ -20,7 +20,7 @@ const routes: Routes = [
         path: 'details/:id',
         component: BookDetailsComponent,
         data: {
-          isLogged: true
+          isLogged: true,
         }
       },
       {

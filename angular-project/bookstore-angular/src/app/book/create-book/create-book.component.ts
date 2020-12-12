@@ -27,6 +27,7 @@ export class CreateBookComponent implements OnInit {
       bookPrice: ['', [Validators.required, Validators.pattern('^\\d+(.\\d{1,2})?$')]],
       reviewText: ['', [Validators.required, Validators.maxLength(200)]]
     })
+
   }
 
 
@@ -41,5 +42,4 @@ export class CreateBookComponent implements OnInit {
         }
       })
   }
-
 }

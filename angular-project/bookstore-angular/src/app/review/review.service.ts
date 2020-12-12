@@ -17,11 +17,14 @@ export class ReviewService {
   constructor(private http: HttpClient) {
   }
 
-  loadAllReviews(bookId: string, limit?: number): Observable<IReview[]> {
+  loadAllReviews(limit?: number): Observable<IReview[]> {
     return this.http.get<IReview[]>(
       `${apiUrl}/reviews${limit ? `?=${limit}` : ''}`
     );
   }
 
+  saveReview(data: any): Observable<IReview> {
+    return this.http.post<IReview>(`${apiUrl}/books`, data, { withCredentials: true })
+  }
 
 }

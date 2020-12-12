@@ -5,24 +5,26 @@
         <li>
           <a mat-stroked-button routerLink="/home">BOOKSTORE</a>
         </li>
-        <li>
-          <a mat-stroked-button routerLink="/top">RANKINGS</a>
+        <li *ngIf="isLogged">
+          <a mat-stroked-button (click)="logoutHandler()">LOGOUT</a>
         </li>
-      </ul>
-    </div>
-    <div id="nav-text">
-      <i>Welcome to the biggest store for books</i>
-    </div>
-    <div class="col-nav">
-      <ul>
         <li *ngIf="!isLogged">
           <a mat-stroked-button routerLink="/user/login">LOGIN</a>
         </li>
         <li *ngIf="!isLogged">
           <a mat-stroked-button routerLink="/user/register">REGISTER</a>
         </li>
+      </ul>
+    </div>
+    <p *ngIf="!isLogged"><i>Welcome to the biggest store for books</i></p>
+    <p *ngIf="isLogged">Welcome back {{currentUser?.username}}</p>
+    <div class="col-nav">
+      <ul>
         <li *ngIf="!isLogged">
-          <a mat-stroked-button routerLink="/reviews">REVIEWS</a>
+          <a mat-stroked-button routerLink="/top">RANKINGS</a>
+        </li>
+        <li *ngIf="isLogged">
+          <a mat-stroked-button routerLink="/reviews/all">REVIEWS</a>
         </li>
         <li *ngIf="isLogged">
           <a mat-stroked-button routerLink="/book/allbooks">BOOKS</a>
@@ -31,13 +33,7 @@
           <a mat-stroked-button routerLink="/user/profile">PROFILE</a>
         </li>
         <li *ngIf="isLogged">
-          <a mat-stroked-button routerLink="/book/create">CREATE BOOK</a>
-        </li>
-        <li *ngIf="isLogged">
-          <a mat-stroked-button routerLink="/reviews">BOOK REVIEWS</a>
-        </li>
-        <li *ngIf="isLogged">
-          <a mat-stroked-button (click)="logoutHandler()">LOGOUT</a>
+          <a mat-stroked-button routerLink="/book/create">CREATE A BOOK</a>
         </li>
       </ul>
     </div>

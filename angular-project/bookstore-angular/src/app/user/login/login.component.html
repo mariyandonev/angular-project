@@ -2,12 +2,15 @@
   <form [formGroup]="form" (ngSubmit)="loginHandler(form.value)" id="login-form">
     <h2>Login Form</h2>
     <mat-form-field class="mat-list-item">
-      <input matInput type="email" placeholder="doe.john@mail.com" formControlName="email">
+      <mat-label>Email: </mat-label>
+      <input matInput type="email" formControlName="email">
       <mat-hint align="end">Email must be correct</mat-hint>
       <mat-error *ngIf="form.hasError('required', 'email')">Email is required</mat-error>
     </mat-form-field>
     <mat-form-field class="mat-list-item">
-      <input matInput type="password" placeholder="****" formControlName="password">
+      <mat-label>Password: </mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+      <mat-icon matSuffix class="material-icons" style="cursor: pointer;" (click)="toggleHide()">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
       <mat-hint align="end">Check if the caps lock is on</mat-hint>
       <mat-error *ngIf="form.hasError('required', 'password')">Password is required</mat-error>
       <mat-error *ngIf="form.hasError('minlength', 'password')">Password must be 5 symbols or more</mat-error>

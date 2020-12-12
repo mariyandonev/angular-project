@@ -50,4 +50,10 @@ export class UserService {
       .pipe(tap(() => this.currentUser = null));
   }
 
+  updateProfile(data: IUser): Observable<IUser>{
+    return this.http.put(`${apiUrl}/users/profile`, data, { withCredentials: true })
+    // @ts-ignore
+      .pipe(tap((user: IUser) => this.currentUser = user ));
+  }
+
 }

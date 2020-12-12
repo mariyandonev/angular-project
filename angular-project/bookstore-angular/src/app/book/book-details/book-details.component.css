@@ -1,0 +1,17 @@
+.image-form {
+  background: url("../../../assets/library-form.jpg") no-repeat center;
+  background-size: cover;
+  height: 616px;
+}
+
+.book-image {
+  background-image: url('../../../assets/book.png');
+  background-size: cover;
+}
+
+.edit-book {
+  width: 400px;
+  position: relative;
+  left: 5em;
+  top: 8em;
+}

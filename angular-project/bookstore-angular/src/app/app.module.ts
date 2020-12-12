@@ -35,7 +35,7 @@ import { TopComponent } from './top/top.component';
     HttpClientModule,
     ReviewModule,
     MatButtonModule,
-    OrderModule
+    OrderModule,
   ],
   providers: [
     ReviewService

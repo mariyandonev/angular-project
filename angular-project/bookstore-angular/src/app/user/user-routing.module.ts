@@ -3,6 +3,7 @@ import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 import {ProfileComponent} from './profile/profile.component';
 import {AuthGuard} from '../core/guards/auth.guard';
+import {UnsavedChangesGuard} from '../core/guards/unsaved-changes.guard';
 
 const routes: Routes = [
   {
@@ -25,6 +26,7 @@ const routes: Routes = [
       },
       {
         path: 'profile',
+        canDeactivate: [UnsavedChangesGuard],
         component: ProfileComponent,
         data: {
           isLogged: true

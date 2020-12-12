@@ -9,8 +9,9 @@ import {CreateBookComponent} from './create-book/create-book.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {OrderModule} from 'ngx-order-pipe';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,8 @@ import {OrderModule} from 'ngx-order-pipe';
     MatInputModule,
     ReactiveFormsModule,
     OrderModule,
+    MatCardModule,
+    FormsModule,
   ],
   providers: [
     BookService

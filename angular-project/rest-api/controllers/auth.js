@@ -1,6 +1,6 @@
 const {
     userModel,
-    tokenBlacklistModel
+    tokenBlacklistModel,
 } = require('../models');
 
 const utils = require('../utils');
@@ -94,9 +94,9 @@ function getProfileInfo(req, res, next) {
 
 function editProfileInfo(req, res, next) {
     const { _id: userId } = req.user;
-    const { tel, username, email } = req.body;
+    const { username, email } = req.body;
 
-    userModel.findOneAndUpdate({ _id: userId }, { tel, username, email }, { runValidators: true, new: true })
+    userModel.findOneAndUpdate({ _id: userId }, { username, email }, { runValidators: true, new: true })
         .then(x => { res.status(200).json(x) })
         .catch(next);
 }

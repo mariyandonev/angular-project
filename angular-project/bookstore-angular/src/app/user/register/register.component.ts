@@ -13,6 +13,7 @@ export class RegisterComponent implements OnInit {
 
   // @ts-ignore
   form: FormGroup;
+  hide = true;
 
   constructor(private fb: FormBuilder, private userService: UserService, private router: Router) {
     const passwordControl = this.fb.control('', [Validators.required, Validators.minLength(5)]);
@@ -42,6 +43,9 @@ export class RegisterComponent implements OnInit {
     })
   }
 
+  toggleHide(): void {
+    this.hide = !this.hide;
+  }
   resetRegistrationForm(): void {
     this.form.reset();
   }

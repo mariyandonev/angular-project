@@ -19,14 +19,15 @@ export class ReviewsComponent implements OnInit {
 
   pipe = new DatePipe('en-US');
 
-  constructor(private reviewService: ReviewService, private userService: UserService) { }
+  constructor(private reviewService: ReviewService,
+              private userService: UserService) { }
 
   get isLogged(): boolean {
     return this.userService.isLogged;
   }
 
   ngOnInit(): void {
-    this.reviewService.loadAllReviews(this.bookId, 5)
+    this.reviewService.loadAllReviews(5)
       .subscribe(reviews => {
         this.reviews = reviews;
       });

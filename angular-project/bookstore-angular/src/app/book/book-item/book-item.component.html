@@ -1,8 +1,7 @@
-<!-- book component  -->
 <div class="book-container">
   <div class="book-name-wrapper">
     <div class="book-name">
-      <a style="font-size: 13px" mat-raised-button routerLink="/book/details/{{book._id}}" class="normal">
+      <a style="font-size: 13px" mat-raised-button routerLink="/book/details/{{book?._id}}" class="normal">
         <h2>{{book.bookName}}</h2>
       </a>
       <div>
@@ -16,7 +15,8 @@
         </div>
         <div>
           <p>Subscribers: <span>{{book.subscribers.length}}</span></p>
-          <button style="font-size: 10px" mat-raised-button class="subscribe">Subscribe</button>
+        </div>
+        <div>
         </div>
       </div>
     </div>
